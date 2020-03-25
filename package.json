@@ -1,0 +1,43 @@
+{
+  "name": "serkanozel-backend",
+  "version": "1.0.0",
+  "description": "Backend for blogs and other stff",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srknzl/serkanozel-backend.git"
+  },
+  "author": "Serkan Özel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srknzl/serkanozel-backend/issues"
+  },
+  "homepage": "https://github.com/srknzl/serkanozel-backend#readme",
+  "keywords": [
+    "blog",
+    "nodejs",
+    "nosql",
+    "mongodb"
+  ],
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.4",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "cookie-parser": "^1.4.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
+    "minimist": ">=1.2.2",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
