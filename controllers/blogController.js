@@ -36,7 +36,8 @@ exports.addBlogEntry = async (req, res, next) => {
       title: req.body.title,
       content: req.body.content,
       coverImageUrl: req.body.coverImageUrl,
-      keywords: req.body.keywords
+      keywords: req.body.keywords,
+      when: new Date()
     });
     await blogEntry.save();
     res.status(201).json({

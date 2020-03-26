@@ -28,7 +28,8 @@ const portfolioEntrySchema = new Schema({
     required: true
   },
   demoLink: {
-    type: String
+    type: String,
+    required: false
   }
 });
 

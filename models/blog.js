@@ -18,6 +18,10 @@ const blogEntrySchema = new Schema({
   keywords: {
     type: [String],
     required: false
+  },
+  when: {
+    type: Date,
+    required: true
   }
 });
 
