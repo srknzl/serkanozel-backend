@@ -36,7 +36,10 @@ exports.addPortfolioEntry = async (req, res, next) => {
       title: req.body.title,
       content: req.body.content,
       coverImageUrl: req.body.coverImageUrl,
-      keywords: req.body.keywords
+      keywords: req.body.keywords,
+      when: req.body.when,
+      teamSize: req.body.teamSize,
+      demoLink: req.body.demoLink
     });
     await portfolioEntry.save();
     res.status(201).json({
@@ -74,7 +77,10 @@ exports.editPortfolioEntry = async (req, res, next) => {
       title: req.body.title,
       content: req.body.content,
       coverImageUrl: req.body.coverImageUrl,
-      keywords: req.body.keywords
+      keywords: req.body.keywords,
+      when: req.body.when,
+      teamSize: req.body.teamSize,
+      demoLink: req.body.demoLink
     });
     if (portfolioEntry) {
       res.status(200).json({

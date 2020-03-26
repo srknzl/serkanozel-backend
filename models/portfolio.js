@@ -18,6 +18,17 @@ const portfolioEntrySchema = new Schema({
   keywords: {
     type: [String],
     required: false
+  },
+  when: {
+    type: Date,
+    required: true
+  },
+  teamSize: {
+    type: Number,
+    required: true
+  },
+  demoLink: {
+    type: String
   }
 });
 
