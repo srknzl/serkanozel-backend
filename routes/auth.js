@@ -2,48 +2,43 @@ const router = require("express").Router();
 const body = require("express-validator").body;
 const authController = require("../controllers/authController")
 
-router.post('/yeniSifre/',
+router.post('/newPassword/',
   [
     body("password").isLength({
       min: 8
-    }).withMessage('Şifreniz en az sekiz karakter olsun.'),
+    }).withMessage('Your password should be at least 8 characters long.'),
     body("passwordAgain").custom((value, { req }) => {
       if (req.body.password !== value) {
-        throw new Error("Şifreler aynı değil.");
+        throw new Error("Passwords do not match.");
       }
       return true;
     })
   ],
   authController.postNewPassword);
 
-router.post("/cikis", authController.postLogout);
-router.post("/giris-kontrol", authController.postCheckLogin);
+router.post("/logout", authController.postLogout);
+router.post("/check-login", authController.postCheckLogin);
 router.post(
-  "/giris",
+  "/login",
   [
-    body("email").isEmail().withMessage('Email düzgün değil'),
+    body("email").isEmail().withMessage('Email not valid'),
     body("password").isLength({
       min: 8
-    }).withMessage('Şifreniz en az sekiz karakter olsun')
+    }).withMessage('Your password should be 8 characters long at least')
   ],
   authController.postLogin
 );
 
 // router.post(
-//   "/kaydol",
+//   "/signup",
 //   [
-//     body("email").isEmail().withMessage('E-mail düzgün giriniz.'),
-//     body("name")
-//       .isString().withMessage('Adınız yazı olmalı.')
-//       .isLength({
-//         min: 3
-//       }).withMessage('Adınız en az 3 karakter içermeli.'),
+//     body("email").isEmail().withMessage('E-mail is not valid'),
 //     body("password").isLength({
 //       min: 8
-//     }).withMessage('Şifreniz en az 8 karakter olmalı.'),
+//     }).withMessage('Your password should have at least 8 characters.'),
 //     body("confirmPassword").custom((value, { req }) => {
 //       if (req.body.password !== value) {
-//         throw new Error("Şifreler aynı değil");
+//         throw new Error("Passwords do not match");
 //       }
 //       return true;
 //     })
@@ -52,9 +47,9 @@ router.post(
 // );
 
 
-router.post("/sifirla",
+router.post("/resetPassword",
   [
-    body('email').isEmail().withMessage('Emailinizi düzgün giriniz.')
+    body('email').isEmail().withMessage('Email not valid.')
   ], authController.postReset);
 
 module.exports = router;

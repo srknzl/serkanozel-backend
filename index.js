@@ -8,14 +8,16 @@ const cookieParser = require("cookie-parser");
 
 const blogRouter = require("./routes/blog");
 const authRouter = require("./routes/auth");
+const portfolioRouter = require("./routes/portfolio");
 
 const app = express();
 app.use(bodyParser.json({
-  limit: "1gb" // Basically no limit
+  limit: "100mb" // Basically no limit
 }));
 app.use(cookieParser());
 app.use(helmet());
 app.use("/blog", blogRouter);
+app.use("/portfolio",portfolioRouter);
 app.use("/auth", authRouter);
 app.use(history());
 app.use(express.static(path.join(__dirname, 'dist')));
