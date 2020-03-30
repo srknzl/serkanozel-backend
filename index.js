@@ -14,6 +14,18 @@ const app = express();
 app.use(bodyParser.json({
   limit: "100mb" // Basically no limit
 }));
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin", "*"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type,Cookie,Set-Cookie"
+  );
+  next();
+});
 app.use(cookieParser());
 app.use(helmet());
 app.use("/blog", blogRouter);
@@ -30,18 +42,7 @@ if (process.env.NODE_ENV === "production") {
   MONGODB_URI = require("./credentials/mongo_uri").MONGODB_URI;
 }
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin", "*"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type,Cookie,Set-Cookie"
-  );
-  next();
-});
+
 
 let port = process.env.PORT;
 
