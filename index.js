@@ -17,7 +17,7 @@ app.use(bodyParser.json({
 app.use(cookieParser());
 app.use(helmet());
 app.use("/blog", blogRouter);
-app.use("/portfolio",portfolioRouter);
+app.use("/portfolio", portfolioRouter);
 app.use("/auth", authRouter);
 app.use(history());
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -29,36 +29,19 @@ if (process.env.NODE_ENV === "production") {
 } else {
   MONGODB_URI = require("./credentials/mongo_uri").MONGODB_URI;
 }
-console;
-if (process.env.NODE_ENV === "production") {
-  app.use((req, res, next) => {
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "https://www.serkanozel.me"
-    );
-    res.setHeader("Access-Control-Allow-Methods", "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type,Cookie,Set-Cookie"
-    );
-    next();
-  });
-} else {
-  app.use((req, res, next) => {
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "http://localhost:8080, http://localhost:3000"
-    );
-    res.setHeader("Access-Control-Allow-Methods", "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type,Cookie,Set-Cookie"
-    );
-    next();
-  });
-}
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin", "*"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type,Cookie,Set-Cookie"
+  );
+  next();
+});
 
 let port = process.env.PORT;
 
