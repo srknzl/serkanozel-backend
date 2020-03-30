@@ -4,8 +4,7 @@
   "description": "Backend for blogs and other stuff",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "heroku-postbuild": "git clone https://github.com/srknzl/serkanozel-frontend && cd serkanozel-frontend  && npm run build && rm -rf /app/dist && mv dist /app"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
