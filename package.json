@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "heroku-prebuild": "cd /tmp && git clone https://github.com/srknzl/serkanozel-frontend && cd serkanozel-frontend  && npm i  && npm i --only=dev && npm run build && rm -rf /app/dist && mv dist /app"
+    "fbuild": "cd ~/git/serkanozel && npm run build && rm -rf ~/git/serkanozel-backend/dist && mv dist ~/git/serkanozel-backend/ && cd ~/git/serkanozel-backend"
   },
   "repository": {
     "type": "git",
