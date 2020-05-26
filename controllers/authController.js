@@ -10,7 +10,7 @@ const User = require("../models/user");
 if (process.env.NODE_ENV === "production") {
   sendgridMail.setApiKey(process.env.SENDGRID_API);
 } else {
-  sendgridMail.setApiKey(require("../credentials/sendgrid").apiKey);
+  //sendgridMail.setApiKey(require("../credentials/sendgrid").apiKey);
 }
 
 exports.postNewPassword = async (req, res, next) => {
