@@ -5,8 +5,8 @@ const bodyParser = require("body-parser");
 const history = require("connect-history-api-fallback");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const $rdf = require("rdflib");
 const fs = require("fs");
+const { exec } = require("child_process");
 
 const blogRouter = require("./routes/blog");
 const authRouter = require("./routes/auth");
@@ -30,23 +30,54 @@ app.use((req, res, next) => {
 });
 app.use(cookieParser());
 app.use(helmet());
-app.post("/poc", (req, res, next) => {
-  const userIRI = req.body.userIRI;
-  const store = $rdf.graph();
-  const VCARD = new $rdf.Namespace("http://www.w3.org/2006/vcard/ns#");
-  const pocUsers = store.sym("https://serkanozel.me/pocUsers.ttl#poc");
-  fs.readFile(path.join(__dirname, "dist", "pocUsers.ttl"), "utf8", (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      $rdf.parse(data, store, "https://serkanozel.me/pocUsers.ttl#poc", "text/turtle");
-      store.add(pocUsers, VCARD("hasMember"), userIRI, pocUsers.doc())
-      fs.writeFile(path.join(__dirname, "dist", "pocUsers.ttl"), $rdf.serialize(pocUsers.doc(), store, "https://serkanozel.me/pocUsers.ttl", 'text/turtle'), "utf8", () => {
 
-      });
+app.get("/pocUsers.ttl", (req, res, next) => {
+  exec("node getAllPocAsTurtle.js", (err, stdout, stderr) => {
+    if (err) {
+      console.log(`error: ${error.message}`);
+      return res.status(500).send("Error");
     }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return res.status(500).send("Error");
+    };
+    const pocData = fs.readFileSync("dist/a.ttl", "utf-8");
+    res.header("Content-Type", "text/turtle").status(200).send(pocData);
   });
 });
+
+app.post("/pocUsers.ttl", async (req, res, next) => {
+  const userIRI = req.body.userIRI;
+  exec(`node addUserPoc.js "${userIRI}"`, (err, stdout, stderr) => {
+    if (err) {
+      console.log(`error: ${error.message}`);
+      return res.status(500).send("Error");
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return res.status(500).send("Error");
+    };
+    res.header("Content-Type", "application/json").status(201).json("OK");
+  });
+});
+
+app.delete("/pocUsers.ttl", async (req, res, next) => {
+  const userIRI = req.body.userIRI;
+  exec(`node deleteUserPoc.js "${userIRI}"`, (err, stdout, stderr) => {
+    if (err) {
+      console.log(`error: ${error.message}`);
+      return res.status(500).send("Error");
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return res.status(500).send("Error");
+    };
+    res.header("Content-Type", "application/json").status(200).json("OK");
+  });
+});
+
+
+
 app.use("/blog", blogRouter);
 app.use("/portfolio", portfolioRouter);
 app.use("/auth", authRouter);

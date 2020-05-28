@@ -6,9 +6,9 @@ const { exec } = require("child_process");
 
 let ntriples;
 
-exec("ntriples --base=http://serkanozel.me/pocUsers.ttl dist/pocUsers.ttl", (err, stdout, stderr) => {
+exec("./dist/apache-jena-3.15.0/bin/turtle --base=http://serkanozel.me/pocUsers.ttl pocUsers.ttl", (err, stdout, stderr) => {
   if (err) {
-    console.log(`error: ${error.message}`);
+    console.log(`error: ${err.message}`);
     process.exit(1)
   }
   if (stderr) {
