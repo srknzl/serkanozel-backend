@@ -7,19 +7,23 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const fs = require("fs");
 const { exec } = require("child_process");
+const axios = require("axios").default;
+const qs = require("querystring");
+const N3 = require("n3");
+const df = require("n3").DataFactory;
 
 const blogRouter = require("./routes/blog");
 const authRouter = require("./routes/auth");
 const portfolioRouter = require("./routes/portfolio");
 
 const app = express();
-app.use(bodyParser.json({
-  limit: "100mb" // Basically no limit
-}));
+app.use(
+  bodyParser.json({
+    limit: "100mb", // Basically no limit
+  })
+);
 app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin", "http://localhost:8080"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
   res.setHeader("Access-Control-Allow-Methods", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader(
@@ -32,57 +36,109 @@ app.use(cookieParser());
 app.use(helmet());
 
 app.get("/pocUsers.ttl", (req, res, next) => {
-  exec("node getAllPocAsTurtle.js", (err, stdout, stderr) => {
-    if (err) {
-      console.log(`error: ${error.message}`);
-      return res.status(500).send("Error");
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return res.status(500).send("Error");
-    };
-    const pocData = fs.readFileSync("dist/a.ttl", "utf-8");
-    res.header("Content-Type", "text/turtle").status(200).send(pocData);
+  const data = qs.stringify({
+    query: "SELECT ?s ?p ?o WHERE {?s ?p ?o}",
   });
+
+  axios
+    .post("http://134.122.65.239:3030/ds/query", data, {
+      auth: {
+        username: "admin",
+        password: "pw123",
+      },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((ress) => {
+      const writer = new N3.Writer({
+        prefixes: {
+          "": "http://serkanozel.me/pocUsers.ttl",
+          acl: "http://www.w3.org/ns/auth/acl#",
+          dc: "http://purl.org/dc/elements/1.1/",
+          vcard: "http://www.w3.org/2006/vcard/ns#",
+          xsd: "http://www.w3.org/2001/XMLSchema#",
+        },
+      });
+      ress.data.results.bindings.forEach((x) => {
+        if (x.s.value == "http://serkanozel.me/pocUsers.ttl#poc") {
+          writer.addQuad(
+            df.namedNode("#poc"),
+            df.namedNode(x.p.value),
+            df.namedNode(x.o.value)
+          );
+        } else {
+          writer.addQuad(
+            df.namedNode(x.s.value),
+            df.namedNode(x.p.value),
+            df.namedNode(x.o.value)
+          );
+        }
+      });
+      writer.end((err, result) => {
+        res.header("Content-Type", "text/turtle").status(200).send(result);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.post("/pocUsers.ttl", async (req, res, next) => {
   const userIRI = req.body.userIRI;
-  exec(`node addUserPoc.js "${userIRI}"`, (err, stdout, stderr) => {
-    if (err) {
-      console.log(`error: ${error.message}`);
-      return res.status(500).send("Error");
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return res.status(500).send("Error");
-    };
-    res.header("Content-Type", "application/json").status(201).json("OK");
+  const updateQuery = `INSERT { <http://serkanozel.me/pocUsers.ttl#poc> <http://www.w3.org/2006/vcard/ns#hasMember> <${userIRI}> .} WHERE {}`;
+  const data = qs.stringify({
+    update: updateQuery,
   });
+
+  axios
+    .post("http://134.122.65.239:3030/ds/update", data, {
+      auth: {
+        username: "admin",
+        password: "pw123",
+      },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((ress) => {
+      res.status(200).json("OK");
+    })
+    .catch((err) => {
+      res.status(500).json("not ok");
+    });
 });
 
 app.delete("/pocUsers.ttl", async (req, res, next) => {
   const userIRI = req.body.userIRI;
-  exec(`node deleteUserPoc.js "${userIRI}"`, (err, stdout, stderr) => {
-    if (err) {
-      console.log(`error: ${error.message}`);
-      return res.status(500).send("Error");
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return res.status(500).send("Error");
-    };
-    res.header("Content-Type", "application/json").status(200).json("OK");
+  const updateQuery = `DELETE { <http://serkanozel.me/pocUsers.ttl#poc> <http://www.w3.org/2006/vcard/ns#hasMember> <${userIRI}> .} WHERE {?s ?p ?o}`;
+  const data = qs.stringify({
+    update: updateQuery,
   });
+
+  axios
+    .post("http://134.122.65.239:3030/ds/update", data, {
+      auth: {
+        username: "admin",
+        password: "pw123",
+      },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((ress) => {
+      res.status(200).json("ok");
+    })
+    .catch((err) => {
+      res.status(500).json("not ok");
+    });
 });
-
-
 
 app.use("/blog", blogRouter);
 app.use("/portfolio", portfolioRouter);
 app.use("/auth", authRouter);
 app.use(history());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, "dist")));
 
 let MONGODB_URI;
 
@@ -91,8 +147,6 @@ if (process.env.NODE_ENV === "production") {
 } else {
   // MONGODB_URI = require("./credentials/mongo_uri").MONGODB_URI;
 }
-
-
 
 let port = process.env.PORT;
 
@@ -104,24 +158,22 @@ const errorHandler = (err, req, res, next) => {
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).json({
     message: err.message,
-    error: err
+    error: err,
   });
 };
 app.use(errorHandler);
 
-app.listen(3000);
-
-/* mongoose.connect(
+mongoose.connect(
   MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useFindAndModify: false
   },
-  async err => {
+  async (err) => {
     if (err) console.error(err);
     app.listen(port, () => {
       console.log("Server listening on port ", port);
     });
   }
-); */
+);
