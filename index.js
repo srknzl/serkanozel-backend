@@ -66,7 +66,7 @@ app.get("/pocUsers.ttl", (req, res, next) => {
             df.namedNode("#poc"),
             df.namedNode(x.p.value),
             x.o.type == "literal"
-              ? df.literal(x.o.value, x.o.datatype)
+              ? df.literal(x.o.value, df.namedNode(x.o.datatype))
               : df.namedNode(x.o.value)
           );
         } else {
@@ -74,7 +74,7 @@ app.get("/pocUsers.ttl", (req, res, next) => {
             df.namedNode(x.s.value),
             df.namedNode(x.p.value),
             x.o.type == "literal"
-              ? df.literal(x.o.value, x.o.datatype)
+              ? df.literal(x.o.value, df.namedNode(x.o.datatype))
               : df.namedNode(x.o.value)
           );
         }
