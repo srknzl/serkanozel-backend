@@ -1,0 +1,1105 @@
+@prefix : <http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix ma: <http://www.w3.org/ns/ma-ont#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sioc-services: <http://rdfs.org/sioc/services#> .
+
+<http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#> a owl:Ontology ;
+	dcterms:creator "Murat Seyhan" ;
+	rdfs:label "Purposeful Online Communities (POC)" ;
+	dcterms:date "December 26, 2015" ;
+	dcterms:title "Purposeful Online Communities (POC) Core Ontology" ;
+	dcterms:description "An ontology of purposeful online communities." ;
+	owl:versionInfo "Version 1.0" .
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Expression
+
+:Expression a rdfs:Datatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#View
+
+:View a rdfs:Datatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#ViewTemplate
+
+:ViewTemplate a rdfs:Datatype .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#allowedRole
+
+:allowedRole a owl:ObjectProperty ;
+	rdfs:domain :Constraint ;
+	rdfs:range :Role .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#baseDatatype
+
+:baseDatatype a owl:ObjectProperty , owl:TransitiveProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range :Datatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#constraint
+
+:constraint a owl:ObjectProperty ;
+	rdfs:domain :POC_Concept ;
+	rdfs:range :Constraint .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#dataField
+
+:dataField a owl:ObjectProperty ;
+	rdfs:domain :CompositeDatatype ;
+	rdfs:range :DataField ;
+	rdfs:comment "A field of a CompositeDatatype."@en ;
+	rdfs:label "dataField"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#datatype
+
+:datatype a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :Instance ;
+	rdfs:range :Datatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#fieldType
+
+:fieldType a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :DataField .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#fieldValue
+
+:fieldValue a owl:ObjectProperty ;
+	rdfs:domain :CompositeDataInstance ;
+	rdfs:range :ValueBinding .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#inputPort
+
+:inputPort a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain :Step ;
+	rdfs:range :InputPort .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#outputPort
+
+:outputPort a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain :Step ;
+	rdfs:range :OutputPort .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#pipe
+
+:pipe a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain :Workflow ;
+	rdfs:range :Pipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#sourcePort
+
+:sourcePort a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :Pipe ;
+	rdfs:range :Port .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#sourceService
+
+:sourceService a owl:ObjectProperty ;
+	rdfs:domain :DataField ;
+	rdfs:range sioc-services:Service .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#sourceStep
+
+:sourceStep a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :ControlPipe ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :PortPipe ;
+	rdf:rest rdf:nil .
+
+:sourceStep rdfs:range :Step .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#sourceUriValue
+
+:sourceUriValue a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :DirectPipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#step
+
+:step a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain :Workflow ;
+	rdfs:range :Step .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#stepInstance
+
+:stepInstance a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain :WorkflowInstance ;
+	rdfs:range :StepInstance .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#targetPort
+
+:targetPort a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :Pipe ;
+	rdfs:range :Port .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#targetStep
+
+:targetStep a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :Pipe ;
+	rdfs:range :Step .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#task
+
+:task a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :Step ;
+	rdfs:range :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#uriValue
+
+:uriValue a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain :ValueBinding .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#allowIf
+
+:allowIf a owl:DatatypeProperty ;
+	rdfs:domain :Constraint ;
+	rdfs:range :Expression .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#isRequired
+
+:isRequired a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DataField ;
+	rdfs:range xsd:boolean .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#literalValue
+
+:literalValue a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :ValueBinding .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#maxFileSize
+
+:maxFileSize a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer ;
+	rdfs:comment "Maximum file size in kilobytes."@en ;
+	rdfs:label "maxFileSize"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#maxFrameHeight
+
+:maxFrameHeight a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#maxFrameWidth
+
+:maxFrameWidth a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#maxSize
+
+:maxSize a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer ;
+	rdfs:comment "Maximum size of a list."@en ;
+	rdfs:label "maxSize"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#maxTrackLength
+
+:maxTrackLength a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer ;
+	rdfs:label "maxTrackLength"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#minFileSize
+
+:minFileSize a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer ;
+	rdfs:comment "Minimum file size in kilobytes."@en ;
+	rdfs:label "minFileSize"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#minFrameHeight
+
+:minFrameHeight a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#minFrameWidth
+
+:minFrameWidth a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#minTrackLength
+
+:minTrackLength a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer ;
+	rdfs:label "minTrackLength"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#scaleHeight
+
+:scaleHeight a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#scaleWidth
+
+:scaleWidth a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DerivedDatatype ;
+	rdfs:range xsd:integer .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#sourceLiteralValue
+
+:sourceLiteralValue a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :DirectPipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#status
+
+:status a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain _:genid4 .
+
+_:genid4 a owl:Class ;
+	owl:unionOf _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :StepInstance ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first :WorkflowInstance ;
+	rdf:rest rdf:nil .
+
+:status rdfs:range xsd:string ;
+	rdfs:comment "The status of an individual of WorkflowInstance or StepInstance. The possible values are 'ready', 'ongoing', 'pending', 'completed' and 'aborted'."@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#view
+
+:view a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :StepInstance ;
+	rdfs:range :View .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#viewTemplate
+
+:viewTemplate a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain :Step ;
+	rdfs:range :ViewTemplate .
+# 
+# http://www.w3.org/2000/01/rdf-schema#label
+
+rdfs:label a owl:DatatypeProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#AudioTrack
+
+:AudioTrack a owl:Class ;
+	rdfs:subClassOf :MediaResource , ma:AudioTrack ;
+	rdfs:label "AudioTrack"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#CompositeDataInstance
+
+:CompositeDataInstance a owl:Class ;
+	rdfs:subClassOf :DataInstance .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#CompositeDatatype
+
+:CompositeDatatype a owl:Class ;
+	rdfs:subClassOf :UserDefinedDatatype ;
+	rdfs:label "CompositeDatatype"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#ConditionalControlPipe
+
+:ConditionalControlPipe a owl:Class ;
+	rdfs:subClassOf :ControlPipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Constraint
+
+:Constraint a owl:Class ;
+	rdfs:subClassOf :POC_Concept .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#ControlPipe
+
+:ControlPipe a owl:Class ;
+	rdfs:subClassOf :Pipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#CreateStep
+
+:CreateStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid8 .
+
+_:genid8 owl:intersectionOf _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first _:genid10 .
+
+_:genid10 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "datatype" .
+
+_:genid9 rdf:rest rdf:nil .
+
+_:genid8 a owl:Class .
+
+:CreateStep rdfs:subClassOf _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid13 .
+
+_:genid13 owl:intersectionOf _:genid16 .
+
+_:genid16 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid14 .
+
+_:genid14 a rdf:List ;
+	rdf:first _:genid15 .
+
+_:genid15 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid14 rdf:rest rdf:nil .
+
+_:genid13 a owl:Class .
+
+:CreateStep rdfs:subClassOf _:genid17 .
+
+_:genid17 a owl:Restriction ;
+	owl:onProperty :outputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid18 .
+
+_:genid18 owl:intersectionOf _:genid21 .
+
+_:genid21 a rdf:List ;
+	rdf:first :OutputPort ;
+	rdf:rest _:genid19 .
+
+_:genid19 a rdf:List ;
+	rdf:first _:genid20 .
+
+_:genid20 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "result" .
+
+_:genid19 rdf:rest rdf:nil .
+
+_:genid18 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#DataField
+
+:DataField a owl:Class ;
+	rdfs:subClassOf :POC_Concept ;
+	rdfs:label "DataField"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#DataInstance
+
+:DataInstance a owl:Class ;
+	rdfs:subClassOf :Instance .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Datatype
+
+:Datatype a owl:Class ;
+	rdfs:subClassOf :POC_Concept ;
+	rdfs:label "Datatype"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#DeleteStep
+
+:DeleteStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid22 .
+
+_:genid22 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid23 .
+
+_:genid23 owl:intersectionOf _:genid26 .
+
+_:genid26 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid24 .
+
+_:genid24 a rdf:List ;
+	rdf:first _:genid25 .
+
+_:genid25 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid24 rdf:rest rdf:nil .
+
+_:genid23 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#DerivedDatatype
+
+:DerivedDatatype a owl:Class ;
+	rdfs:subClassOf :UserDefinedDatatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#DirectPipe
+
+:DirectPipe a owl:Class ;
+	rdfs:subClassOf :Pipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#DisplayStep
+
+:DisplayStep a owl:Class ;
+	rdfs:subClassOf :Step .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#EvaluateStep
+
+:EvaluateStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid27 .
+
+_:genid27 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid28 .
+
+_:genid28 owl:intersectionOf _:genid31 .
+
+_:genid31 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid29 .
+
+_:genid29 a rdf:List ;
+	rdf:first _:genid30 .
+
+_:genid30 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid29 rdf:rest rdf:nil .
+
+_:genid28 a owl:Class .
+
+:EvaluateStep rdfs:subClassOf _:genid32 .
+
+_:genid32 a owl:Restriction ;
+	owl:onProperty :outputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid33 .
+
+_:genid33 owl:intersectionOf _:genid36 .
+
+_:genid36 a rdf:List ;
+	rdf:first :OutputPort ;
+	rdf:rest _:genid34 .
+
+_:genid34 a rdf:List ;
+	rdf:first _:genid35 .
+
+_:genid35 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "result" .
+
+_:genid34 rdf:rest rdf:nil .
+
+_:genid33 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#FalsePipe
+
+:FalsePipe a owl:Class ;
+	rdfs:subClassOf :ConditionalControlPipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#FilterStep
+
+:FilterStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid37 .
+
+_:genid37 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid38 .
+
+_:genid38 owl:intersectionOf _:genid41 .
+
+_:genid41 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid39 .
+
+_:genid39 a rdf:List ;
+	rdf:first _:genid40 .
+
+_:genid40 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "condition" .
+
+_:genid39 rdf:rest rdf:nil .
+
+_:genid38 a owl:Class .
+
+:FilterStep rdfs:subClassOf _:genid42 .
+
+_:genid42 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid43 .
+
+_:genid43 owl:intersectionOf _:genid46 .
+
+_:genid46 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid44 .
+
+_:genid44 a rdf:List ;
+	rdf:first _:genid45 .
+
+_:genid45 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid44 rdf:rest rdf:nil .
+
+_:genid43 a owl:Class .
+
+:FilterStep rdfs:subClassOf _:genid47 .
+
+_:genid47 a owl:Restriction ;
+	owl:onProperty :outputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid48 .
+
+_:genid48 owl:intersectionOf _:genid51 .
+
+_:genid51 a rdf:List ;
+	rdf:first :OutputPort ;
+	rdf:rest _:genid49 .
+
+_:genid49 a rdf:List ;
+	rdf:first _:genid50 .
+
+_:genid50 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "result" .
+
+_:genid49 rdf:rest rdf:nil .
+
+_:genid48 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#GetStep
+
+:GetStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid52 .
+
+_:genid52 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid53 .
+
+_:genid53 owl:intersectionOf _:genid56 .
+
+_:genid56 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid54 .
+
+_:genid54 a rdf:List ;
+	rdf:first _:genid55 .
+
+_:genid55 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "index" .
+
+_:genid54 rdf:rest rdf:nil .
+
+_:genid53 a owl:Class .
+
+:GetStep rdfs:subClassOf _:genid57 .
+
+_:genid57 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid58 .
+
+_:genid58 owl:intersectionOf _:genid61 .
+
+_:genid61 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid59 .
+
+_:genid59 a rdf:List ;
+	rdf:first _:genid60 .
+
+_:genid60 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "source" .
+
+_:genid59 rdf:rest rdf:nil .
+
+_:genid58 a owl:Class .
+
+:GetStep rdfs:subClassOf _:genid62 .
+
+_:genid62 a owl:Restriction ;
+	owl:onProperty :outputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid63 .
+
+_:genid63 owl:intersectionOf _:genid66 .
+
+_:genid66 a rdf:List ;
+	rdf:first :OutputPort ;
+	rdf:rest _:genid64 .
+
+_:genid64 a rdf:List ;
+	rdf:first _:genid65 .
+
+_:genid65 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "result" .
+
+_:genid64 rdf:rest rdf:nil .
+
+_:genid63 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#HumanPipe
+
+:HumanPipe a owl:Class ;
+	rdfs:subClassOf :Pipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Image
+
+:Image a owl:Class ;
+	rdfs:subClassOf :MediaResource , ma:Image ;
+	rdfs:label "Image"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#InputPort
+
+:InputPort a owl:Class ;
+	rdfs:subClassOf :Port .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#InsertStep
+
+:InsertStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid67 .
+
+_:genid67 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid68 .
+
+_:genid68 owl:intersectionOf _:genid71 .
+
+_:genid71 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid69 .
+
+_:genid69 a rdf:List ;
+	rdf:first _:genid70 .
+
+_:genid70 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid69 rdf:rest rdf:nil .
+
+_:genid68 a owl:Class .
+
+:InsertStep rdfs:subClassOf _:genid72 .
+
+_:genid72 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid73 .
+
+_:genid73 owl:intersectionOf _:genid76 .
+
+_:genid76 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid74 .
+
+_:genid74 a rdf:List ;
+	rdf:first _:genid75 .
+
+_:genid75 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "target" .
+
+_:genid74 rdf:rest rdf:nil .
+
+_:genid73 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Instance
+
+:Instance a owl:Class ;
+	rdfs:subClassOf :POC_Concept .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#List
+
+:List a owl:Class ;
+	rdfs:subClassOf :DataInstance .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#MediaResource
+
+:MediaResource a owl:Class ;
+	rdfs:subClassOf :DataInstance , ma:MediaResource ;
+	rdfs:label "MediaResource"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#MediaType
+
+:MediaType a owl:Class ;
+	rdfs:subClassOf :PrimitiveDatatype ;
+	rdfs:label "MediaType"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#OutputPort
+
+:OutputPort a owl:Class ;
+	rdfs:subClassOf :Port .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#POC_Concept
+
+:POC_Concept a owl:Class ;
+	rdfs:label "POC Concept"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Pipe
+
+:Pipe a owl:Class ;
+	rdfs:subClassOf :POC_Concept ;
+	rdfs:label "Pipe"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Port
+
+:Port a owl:Class ;
+	rdfs:subClassOf :POC_Concept .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#PortPipe
+
+:PortPipe a owl:Class ;
+	rdfs:subClassOf :Pipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#PrimitiveDatatype
+
+:PrimitiveDatatype a owl:Class ;
+	rdfs:subClassOf :Datatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#RemoveStep
+
+:RemoveStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid77 .
+
+_:genid77 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid78 .
+
+_:genid78 owl:intersectionOf _:genid81 .
+
+_:genid81 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid79 .
+
+_:genid79 a rdf:List ;
+	rdf:first _:genid80 .
+
+_:genid80 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "source" .
+
+_:genid79 rdf:rest rdf:nil .
+
+_:genid78 a owl:Class .
+
+:RemoveStep rdfs:subClassOf _:genid82 .
+
+_:genid82 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid83 .
+
+_:genid83 a owl:Class ;
+	owl:unionOf _:genid89 .
+
+_:genid89 a rdf:List ;
+	rdf:first _:genid90 .
+
+_:genid90 owl:intersectionOf _:genid93 .
+
+_:genid93 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid91 .
+
+_:genid91 a rdf:List ;
+	rdf:first _:genid92 .
+
+_:genid92 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "index" .
+
+_:genid91 rdf:rest rdf:nil .
+
+_:genid90 a owl:Class .
+
+_:genid89 rdf:rest _:genid84 .
+
+_:genid84 a rdf:List ;
+	rdf:first _:genid85 .
+
+_:genid85 owl:intersectionOf _:genid88 .
+
+_:genid88 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid86 .
+
+_:genid86 a rdf:List ;
+	rdf:first _:genid87 .
+
+_:genid87 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid86 rdf:rest rdf:nil .
+
+_:genid85 a owl:Class .
+
+_:genid84 rdf:rest rdf:nil .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Role
+
+:Role a owl:Class ;
+	rdfs:subClassOf sioc:Role , :POC_Concept ;
+	rdfs:label "Role"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#SaveStep
+
+:SaveStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid94 .
+
+_:genid94 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid95 .
+
+_:genid95 owl:intersectionOf _:genid98 .
+
+_:genid98 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid96 .
+
+_:genid96 a rdf:List ;
+	rdf:first _:genid97 .
+
+_:genid97 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid96 rdf:rest rdf:nil .
+
+_:genid95 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#SizeStep
+
+:SizeStep a owl:Class ;
+	rdfs:subClassOf :Step , _:genid99 .
+
+_:genid99 a owl:Restriction ;
+	owl:onProperty :inputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid100 .
+
+_:genid100 owl:intersectionOf _:genid103 .
+
+_:genid103 a rdf:List ;
+	rdf:first :InputPort ;
+	rdf:rest _:genid101 .
+
+_:genid101 a rdf:List ;
+	rdf:first _:genid102 .
+
+_:genid102 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "object" .
+
+_:genid101 rdf:rest rdf:nil .
+
+_:genid100 a owl:Class .
+
+:SizeStep rdfs:subClassOf _:genid104 .
+
+_:genid104 a owl:Restriction ;
+	owl:onProperty :outputPort ;
+	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onClass _:genid105 .
+
+_:genid105 owl:intersectionOf _:genid108 .
+
+_:genid108 a rdf:List ;
+	rdf:first :OutputPort ;
+	rdf:rest _:genid106 .
+
+_:genid106 a rdf:List ;
+	rdf:first _:genid107 .
+
+_:genid107 a owl:Restriction ;
+	owl:onProperty rdfs:label ;
+	owl:hasValue "result" .
+
+_:genid106 rdf:rest rdf:nil .
+
+_:genid105 a owl:Class .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Step
+
+:Step a owl:Class ;
+	rdfs:subClassOf :POC_Concept ;
+	rdfs:label "Step"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#StepInstance
+
+:StepInstance a owl:Class ;
+	rdfs:subClassOf :Instance .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Task
+
+:Task a owl:Class ;
+	rdfs:subClassOf :POC_Concept ;
+	rdfs:label "Task"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#TruePipe
+
+:TruePipe a owl:Class ;
+	rdfs:subClassOf :ConditionalControlPipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#UnconditionalControlPipe
+
+:UnconditionalControlPipe a owl:Class ;
+	rdfs:subClassOf :ControlPipe .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#UserDefinedDatatype
+
+:UserDefinedDatatype a owl:Class ;
+	rdfs:subClassOf :Datatype .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#ValueBinding
+
+:ValueBinding a owl:Class ;
+	rdfs:subClassOf :POC_Concept .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#VideoTrack
+
+:VideoTrack a owl:Class ;
+	rdfs:subClassOf :MediaResource , ma:VideoTrack ;
+	rdfs:label "VideoTrack"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Workflow
+
+:Workflow a owl:Class ;
+	rdfs:subClassOf :POC_Concept .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#WorkflowInstance
+
+:WorkflowInstance a owl:Class ;
+	rdfs:subClassOf :Instance .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#AudioType
+
+:AudioType a owl:NamedIndividual , :MediaType ;
+	rdfs:label "AudioType"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Create
+
+:Create a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Delete
+
+:Delete a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Evaluate
+
+:Evaluate a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Filter
+
+:Filter a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Get
+
+:Get a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#ImageType
+
+:ImageType a owl:NamedIndividual , :MediaType ;
+	rdfs:label "ImageType"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Insert
+
+:Insert a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#ListType
+
+:ListType a owl:NamedIndividual , :PrimitiveDatatype ;
+	rdfs:label "ListType"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Random
+
+:Random a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Remove
+
+:Remove a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#Save
+
+:Save a owl:NamedIndividual , :Task .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#VideoType
+
+:VideoType a owl:NamedIndividual , :MediaType ;
+	rdfs:label "VideoType"@en .
+# 
+# Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi

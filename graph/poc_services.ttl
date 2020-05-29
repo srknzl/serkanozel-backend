@@ -1,0 +1,165 @@
+@prefix : <http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix poc: <http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix sioc-services: <http://rdfs.org/sioc/services#> .
+
+<http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#> a owl:Ontology ;
+	dcterms:creator "Murat Seyhan" ;
+	rdfs:label "Purposeful Online Communities - Services (POC-Services)" ;
+	dcterms:description "An extention of POC Core Ontology for the POC related service communication." ;
+	dcterms:date "December 26, 2015" ;
+	dcterms:title "Purposeful Online Communities - Services (POC-Services) Ontology" ;
+	owl:versionInfo "Version 1.0" .
+
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#performer
+
+:performer a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:domain poc:POC_Concept ;
+  rdfs:range :User .
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#dataInstances
+
+:dataInstances a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :POC_Server ;
+	rdfs:range ldp:Container ;
+	rdfs:label "dataInstances"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#datatypes
+
+:datatypes a owl:ObjectProperty, owl:FunctionalProperty;
+	rdfs:domain :POC_Server ;
+	rdfs:range ldp:Container ;
+	rdfs:label "datatypes"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#input
+
+:input a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain :StepInstance ;
+	rdfs:range poc:ValueBinding .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#output
+
+:output a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+  rdfs:domain :StepInstance ;
+  rdfs:range poc:ValueBinding .
+
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#instances
+
+:instances a owl:ObjectProperty ;
+	rdfs:domain poc:POC_Concept ;
+	rdfs:range ldp:Container ;
+	rdfs:label "instances"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#stepInstances
+
+:stepInstances a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkflowInstance ;
+  rdfs:range ldp:Container.
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#stepInstance
+
+:stepInstance a owl:ObjectProperty ;
+	rdfs:domain :WorkflowInstance ;
+  rdfs:range :StepInstance.
+
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#users
+
+:users a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :POC_Server ;
+	rdfs:range ldp:Container ;
+	rdfs:label "users"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#workflows
+
+:workflows a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :POC_Server ;
+	rdfs:range ldp:Container ;
+	rdfs:label "workflows"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#performedAt
+
+:performedAt a owl:DatatypeProperty , owl:FunctionalProperty ;
+  rdfs:domain :StepInstance ;
+  rdfs:range xsd:dateTime .
+# 
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#status
+
+:status a owl:DatatypeProperty , owl:FunctionalProperty ;
+	rdfs:domain _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :StepInstance ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :WorkflowInstance ;
+	rdf:rest rdf:nil .
+
+:status rdfs:range xsd:string ;
+	rdfs:comment "The status of an individual of WorkflowInstance or StepInstance. The possible values are 'ready', 'ongoing', 'pending', 'completed' and 'aborted'."@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#User
+
+:User a owl:Class ;
+  rdfs:subClassOf sioc:UserAccount , poc:POC_Concept .
+#
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#POC_Server
+
+:POC_Server a owl:Class ;
+	rdfs:subClassOf poc:POC_Concept ;
+	rdfs:label "POC Server"@en .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#StepInstance
+
+:StepInstance a owl:Class ;
+	rdfs:subClassOf poc:Instance .
+# 
+# http://web.cmpe.boun.edu.tr/soslab/ontologies/poc/services#WorkflowInstance
+
+:WorkflowInstance a owl:Class ;
+	rdfs:subClassOf poc:Instance .
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+
+:stepInstances rdfs:label "stepInstances"@en .

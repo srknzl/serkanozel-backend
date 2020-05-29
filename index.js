@@ -41,7 +41,7 @@ app.get("/pocUsers.ttl", (req, res, next) => {
   });
 
   axios
-    .post("http://134.122.65.239:3030/ds/query", data, {
+    .post("http://134.122.65.239:3030/ds/sparql", data, {
       auth: {
         username: "admin",
         password: "pw123",
@@ -163,7 +163,9 @@ const errorHandler = (err, req, res, next) => {
 };
 app.use(errorHandler);
 
-mongoose.connect(
+app.listen(3000);
+
+/* mongoose.connect(
   MONGODB_URI,
   {
     useNewUrlParser: true,
@@ -176,4 +178,4 @@ mongoose.connect(
       console.log("Server listening on port ", port);
     });
   }
-);
+); */

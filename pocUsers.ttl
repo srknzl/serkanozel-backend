@@ -9,4 +9,3 @@
     vcard:hasUID     <urn:uuid:8831CBAD-1111-2222-8563-F0F4787E5398:ABGroup>;
     dc:created       "2020-09-11T07:18:19"^^xsd:dateTime;
     dc:modified      "2020-08-08T14:45:15"^^xsd:dateTime;
-    vcard:hasMember  <https://srknzl.solid.community/profile/card#me>.
