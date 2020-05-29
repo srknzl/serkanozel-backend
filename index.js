@@ -167,9 +167,9 @@ const errorHandler = (err, req, res, next) => {
 };
 app.use(errorHandler);
 
-app.listen(3000);
+// app.listen(3000);
 
-/* mongoose.connect(
+mongoose.connect(
   MONGODB_URI,
   {
     useNewUrlParser: true,
@@ -182,4 +182,4 @@ app.listen(3000);
       console.log("Server listening on port ", port);
     });
   }
-); */
+);
