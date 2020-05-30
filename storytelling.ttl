@@ -1,4 +1,4 @@
-@prefix : <http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#> .
+@prefix : <http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix poc: <http://web.cmpe.boun.edu.tr/soslab/ontologies/poc#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -7,10 +7,10 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling> .
+@base <http://soslab.cmpe.boun.edu.tr/ontologies/storytelling> .
 
-<http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling> rdf:type owl:Ontology ;
-                                                          owl:versionIRI <http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling/1.0.0> ;
+<http://soslab.cmpe.boun.edu.tr/ontologies/storytelling> rdf:type owl:Ontology ;
+                                                          owl:versionIRI <http://soslab.cmpe.boun.edu.tr/ontologies/storytelling/1.0.0> ;
                                                           owl:imports poc: ;
                                                           rdfs:comment "An ontology for creating an application in which elder children will tell a story to younger one as it happens in schools before the COVID-19 outbreak."^^xsd:string .
 
@@ -34,7 +34,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#ModifyStep
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#ModifyStep
 :ModifyStep rdf:type owl:Class ;
             rdfs:subClassOf poc:Step ,
                             [ rdf:type owl:Restriction ;
@@ -102,7 +102,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
 #    Individuals
 #################################################################
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S0
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S0
 :S0 rdf:type owl:NamedIndividual ,
              poc:CreateStep ;
     poc:inputPort :inputPort0 ,
@@ -111,7 +111,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Create live story step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S1
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S1
 :S1 rdf:type owl:NamedIndividual ,
              poc:InsertStep ;
     poc:inputPort :inputPort2 ,
@@ -121,21 +121,21 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Create live story step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S10
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S10
 :S10 rdf:type owl:NamedIndividual ,
               poc:SaveStep ;
      poc:inputPort :inputPort15 ;
      rdfs:comment "Watch offline step, saves the offline story selected" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S11
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S11
 :S11 rdf:type owl:NamedIndividual ,
               poc:SaveStep ;
      poc:inputPort :inputPort19 ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S12
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S12
 :S12 rdf:type owl:NamedIndividual ,
               poc:EvaluateStep ;
      poc:inputPort :inputPort20 ;
@@ -143,20 +143,20 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S13
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S13
 :S13 rdf:type owl:NamedIndividual ,
               poc:DisplayStep ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S14
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S14
 :S14 rdf:type owl:NamedIndividual ,
               poc:SaveStep ;
      poc:inputPort :inputPort21 ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S15
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S15
 :S15 rdf:type owl:NamedIndividual ,
               poc:EvaluateStep ;
      poc:inputPort :inputPort22 ;
@@ -164,7 +164,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S16
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S16
 :S16 rdf:type owl:NamedIndividual ,
               poc:FilterStep ;
      poc:inputPort :inputPort23 ,
@@ -173,7 +173,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S17
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S17
 :S17 rdf:type owl:NamedIndividual ,
               poc:GetStep ;
      poc:inputPort :inputPort25 ,
@@ -182,7 +182,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S18
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S18
 :S18 rdf:type owl:NamedIndividual ,
               poc:RemoveStep ;
      poc:inputPort :inputPort27 ,
@@ -190,7 +190,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S19
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S19
 :S19 rdf:type owl:NamedIndividual ,
               poc:CreateStep ;
      poc:inputPort :inputPort29 ,
@@ -199,7 +199,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S2
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S2
 :S2 rdf:type owl:NamedIndividual ,
              poc:CreateStep ;
     poc:inputPort :inputPort5 ,
@@ -208,13 +208,13 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Create offline story step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S20
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S20
 :S20 rdf:type owl:NamedIndividual ,
               poc:DisplayStep ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S21
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S21
 :S21 rdf:type owl:NamedIndividual ,
               poc:FilterStep ;
      poc:inputPort :inputPort31 ,
@@ -223,7 +223,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S22
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S22
 :S22 rdf:type owl:NamedIndividual ,
               poc:GetStep ;
      poc:inputPort :inputPort33 ,
@@ -232,7 +232,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S23
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S23
 :S23 rdf:type owl:NamedIndividual ,
               poc:RemoveStep ;
      poc:inputPort :inputPort35 ,
@@ -240,7 +240,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S24
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S24
 :S24 rdf:type owl:NamedIndividual ,
               poc:CreateStep ;
      poc:inputPort :inputPort37 ,
@@ -249,27 +249,27 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S25
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S25
 :S25 rdf:type owl:NamedIndividual ,
               poc:DisplayStep ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S26
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S26
 :S26 rdf:type owl:NamedIndividual ,
               poc:SaveStep ;
      poc:inputPort :inputPort39 ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S27
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S27
 :S27 rdf:type owl:NamedIndividual ,
               poc:SaveStep ;
      poc:inputPort :inputPort40 ;
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S28
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S28
 :S28 rdf:type owl:NamedIndividual ,
               poc:InsertStep ;
      poc:inputPort :inputPort41 ,
@@ -278,7 +278,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S29
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S29
 :S29 rdf:type owl:NamedIndividual ,
               poc:InsertStep ;
      poc:inputPort :inputPort43 ,
@@ -287,7 +287,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S3
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S3
 :S3 rdf:type owl:NamedIndividual ,
              poc:InsertStep ;
     poc:inputPort :inputPort7 ,
@@ -297,7 +297,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Create offline story step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S30
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S30
 :S30 rdf:type owl:NamedIndividual ,
               poc:CreateStep ;
      poc:inputPort :inputPort45 ,
@@ -306,7 +306,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S31
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S31
 :S31 rdf:type owl:NamedIndividual ,
               poc:CreateStep ;
      poc:inputPort :inputPort47 ,
@@ -315,7 +315,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
      rdfs:comment "Watch online step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S4
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S4
 :S4 rdf:type owl:NamedIndividual ,
              poc:EvaluateStep ;
     poc:inputPort :inputPort11 ;
@@ -323,13 +323,13 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Watch offline step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S5
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S5
 :S5 rdf:type owl:NamedIndividual ,
              poc:DisplayStep ;
     rdfs:comment "Watch offline step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S6
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S6
 :S6 rdf:type owl:NamedIndividual ,
              poc:GetStep ;
     poc:inputPort :inputPort12 ,
@@ -338,7 +338,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Watch offline step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S7
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S7
 :S7 rdf:type owl:NamedIndividual ,
              poc:EvaluateStep ;
     poc:inputPort :inputPort14 ;
@@ -346,7 +346,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Watch offline step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S8
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S8
 :S8 rdf:type owl:NamedIndividual ,
              :ModifyStep ;
     poc:inputPort :inputPort16 ,
@@ -356,14 +356,14 @@ poc:fieldType rdf:type owl:AnnotationProperty .
     rdfs:comment "Watch offline step" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S9
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#S9
 :S9 rdf:type owl:NamedIndividual ,
              poc:SaveStep ;
     poc:inputPort :inputPort10 ;
     rdfs:comment "Watch offline step, saves offline stories list" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#acceptedLiveStory
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#acceptedLiveStory
 :acceptedLiveStory rdf:type owl:NamedIndividual ,
                             poc:DataField ;
                    rdfs:label "acceptedLiveStory" ;
@@ -371,7 +371,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
                    poc:fieldType :livestory .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#acceptor
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#acceptor
 :acceptor rdf:type owl:NamedIndividual ,
                    poc:DataField ;
           rdfs:label "acceptor" ;
@@ -379,14 +379,14 @@ poc:fieldType rdf:type owl:AnnotationProperty .
           poc:fieldType xsd:anyURI .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#connectionSpeed
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#connectionSpeed
 :connectionSpeed rdf:type owl:NamedIndividual ;
                  rdfs:label "connectionSpeed" ;
                  dcterms:description "The connection speed of your internet in megabits per second (Mbits)" ;
                  poc:fieldType xsd:positiveInteger .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#createLiveStory
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#createLiveStory
 :createLiveStory rdf:type owl:NamedIndividual ,
                           poc:Workflow ;
                  poc:pipe :pipe0 ,
@@ -400,7 +400,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
                  dcterms:description "Create a live story session request that others can find and organize a live session with you." .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#createOfflineStory
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#createOfflineStory
 :createOfflineStory rdf:type owl:NamedIndividual ,
                              poc:Workflow ;
                     poc:pipe :pipe4 ,
@@ -414,7 +414,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
                     dcterms:description "Create an offline story and save it to your pod so that others can watch. Do not forget to share it to people who you want to be able to watch in your pod management panel." .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#creatorUrl
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#creatorUrl
 :creatorUrl rdf:type owl:NamedIndividual ,
                      poc:DataField ;
             rdfs:label "creatorUrl" ;
@@ -422,7 +422,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
             poc:fieldType xsd:anyURI .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#endTime
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#endTime
 :endTime rdf:type owl:NamedIndividual ,
                   poc:DataField ;
          rdfs:label "endTime" ;
@@ -430,7 +430,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
          poc:fieldType xsd:dateTime .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#findLiveStory
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#findLiveStory
 :findLiveStory rdf:type owl:NamedIndividual ,
                         poc:Workflow ;
                poc:pipe :pipe20 ,
@@ -499,301 +499,301 @@ poc:fieldType rdf:type owl:AnnotationProperty .
                dcterms:description "Search for live session requests and if there is a match choose it, the system creates an instance of reservation and adds it to the reservations list. Also, it deletes the live story from the live stories list."@en .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort0
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort0
 :inputPort0 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort1
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort1
 :inputPort1 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "datatype" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort10
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort10
 :inputPort10 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort11
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort11
 :inputPort11 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort12
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort12
 :inputPort12 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "source" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort13
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort13
 :inputPort13 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "index" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort14
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort14
 :inputPort14 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort15
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort15
 :inputPort15 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort16
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort16
 :inputPort16 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "dataField" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort17
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort17
 :inputPort17 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort18
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort18
 :inputPort18 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "value" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort19
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort19
 :inputPort19 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort2
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort2
 :inputPort2 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort20
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort20
 :inputPort20 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort21
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort21
 :inputPort21 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort22
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort22
 :inputPort22 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort23
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort23
 :inputPort23 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "condition" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort24
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort24
 :inputPort24 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort25
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort25
 :inputPort25 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "index" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort26
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort26
 :inputPort26 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "source" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort27
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort27
 :inputPort27 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "source" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort28
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort28
 :inputPort28 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort29
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort29
 :inputPort29 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "datatype" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort3
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort3
 :inputPort3 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "target" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort30
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort30
 :inputPort30 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort31
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort31
 :inputPort31 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "condition" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort32
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort32
 :inputPort32 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort33
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort33
 :inputPort33 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "index" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort34
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort34
 :inputPort34 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "source" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort35
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort35
 :inputPort35 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort36
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort36
 :inputPort36 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "source" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort37
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort37
 :inputPort37 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "datatype" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort38
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort38
 :inputPort38 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort39
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort39
 :inputPort39 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort4
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort4
 :inputPort4 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "index" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort40
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort40
 :inputPort40 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort41
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort41
 :inputPort41 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort42
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort42
 :inputPort42 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "target" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort43
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort43
 :inputPort43 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "target" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort44
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort44
 :inputPort44 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort45
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort45
 :inputPort45 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort46
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort46
 :inputPort46 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "datatype" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort47
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort47
 :inputPort47 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort48
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort48
 :inputPort48 rdf:type owl:NamedIndividual ,
                       poc:InputPort ;
              rdfs:label "datatype" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort5
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort5
 :inputPort5 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort6
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort6
 :inputPort6 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "datatype" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort7
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort7
 :inputPort7 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "object" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort8
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort8
 :inputPort8 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "target" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort9
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#inputPort9
 :inputPort9 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "index" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#latitude
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#latitude
 :latitude rdf:type owl:NamedIndividual ,
                    poc:DataField ;
           rdfs:label "latitude" ;
@@ -801,14 +801,14 @@ poc:fieldType rdf:type owl:AnnotationProperty .
           poc:fieldType xsd:integer .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#liveStories
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#liveStories
 :liveStories rdf:type owl:NamedIndividual ,
                       poc:List ;
              rdfs:label "Live Stories"@en ;
              dcterms:description "The list that holds live stories" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#livestory
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#livestory
 :livestory rdf:type owl:NamedIndividual ,
                     poc:CompositeDatatype ;
            rdfs:label "Live Story" ;
@@ -820,7 +820,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
            poc:fieldType :livestory .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#longitude
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#longitude
 :longitude rdf:type owl:NamedIndividual ,
                     poc:DataField ;
            rdfs:label "longitude" ;
@@ -828,7 +828,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
            poc:fieldType xsd:integer .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#longness
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#longness
 :longness rdf:type owl:NamedIndividual ,
                    poc:DataField ;
           rdfs:label "longness" ;
@@ -836,14 +836,14 @@ poc:fieldType rdf:type owl:AnnotationProperty .
           poc:fieldType xsd:positiveInteger .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#offlineStories
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#offlineStories
 :offlineStories rdf:type owl:NamedIndividual ,
                          poc:List ;
                 rdfs:label "Offline Stories"@en ;
                 dcterms:description "The list that holds offline stories" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#offlineStory
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#offlineStory
 :offlineStory rdf:type owl:NamedIndividual ,
                        poc:CompositeDatatype ;
               rdfs:label "Offline Story" ;
@@ -852,125 +852,125 @@ poc:fieldType rdf:type owl:AnnotationProperty .
                             :summary .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort0
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort0
 :outputPort0 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort1
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort1
 :outputPort1 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort10
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort10
 :outputPort10 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort11
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort11
 :outputPort11 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort12
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort12
 :outputPort12 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort13
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort13
 :outputPort13 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort14
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort14
 :outputPort14 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort15
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort15
 :outputPort15 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort16
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort16
 :outputPort16 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort17
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort17
 :outputPort17 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort18
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort18
 :outputPort18 rdf:type owl:NamedIndividual ,
                        poc:OutputPort .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort19
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort19
 :outputPort19 rdf:type owl:NamedIndividual ,
                        poc:OutputPort .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort2
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort2
 :outputPort2 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort3
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort3
 :outputPort3 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort4
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort4
 :outputPort4 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort5
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort5
 :outputPort5 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort6
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort6
 :outputPort6 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort7
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort7
 :outputPort7 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort8
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort8
 :outputPort8 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort9
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#outputPort9
 :outputPort9 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe0
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe0
 :pipe0 rdf:type owl:NamedIndividual ,
                 poc:HumanPipe ;
        poc:targetPort :inputPort0 ;
@@ -978,7 +978,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create live story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe1
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe1
 :pipe1 rdf:type owl:NamedIndividual ,
                 poc:DirectPipe ;
        poc:sourceUriValue :livestory ;
@@ -987,7 +987,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create live story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe10
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe10
 :pipe10 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort11 ;
@@ -996,7 +996,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe11
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe11
 :pipe11 rdf:type owl:NamedIndividual ,
                  poc:TruePipe ;
         poc:sourceStep :S4 ;
@@ -1004,7 +1004,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe12
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe12
 :pipe12 rdf:type owl:NamedIndividual ,
                  poc:FalsePipe ;
         poc:sourceStep :S4 ;
@@ -1012,7 +1012,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe13
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe13
 :pipe13 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :offlineStories ;
@@ -1021,7 +1021,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe14
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe14
 :pipe14 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort5 ;
@@ -1031,7 +1031,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe15
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe15
 :pipe15 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S10 ;
@@ -1039,7 +1039,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe16
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe16
 :pipe16 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort14 ;
@@ -1048,7 +1048,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe17
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe17
 :pipe17 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort6 ;
@@ -1058,7 +1058,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe18
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe18
 :pipe18 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort5 ;
@@ -1068,7 +1068,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe19
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe19
 :pipe19 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort16 ;
@@ -1077,7 +1077,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe2
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe2
 :pipe2 rdf:type owl:NamedIndividual ,
                 poc:DirectPipe ;
        poc:sourceUriValue :liveStories ;
@@ -1086,7 +1086,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create live story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe20
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe20
 :pipe20 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :liveStories ;
@@ -1095,7 +1095,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe21
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe21
 :pipe21 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S11 ;
@@ -1103,7 +1103,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe22
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe22
 :pipe22 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort20 ;
@@ -1112,7 +1112,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe23
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe23
 :pipe23 rdf:type owl:NamedIndividual ,
                  poc:FalsePipe ;
         poc:sourceStep :S12 ;
@@ -1120,7 +1120,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe24
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe24
 :pipe24 rdf:type owl:NamedIndividual ,
                  poc:TruePipe ;
         poc:sourceStep :S12 ;
@@ -1128,7 +1128,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe25
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe25
 :pipe25 rdf:type owl:NamedIndividual ,
                  poc:HumanPipe ;
         poc:targetPort :inputPort21 ;
@@ -1136,7 +1136,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe26
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe26
 :pipe26 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S14 ;
@@ -1144,7 +1144,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe27
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe27
 :pipe27 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort22 ;
@@ -1153,7 +1153,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe28
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe28
 :pipe28 rdf:type owl:NamedIndividual ,
                  poc:TruePipe ;
         poc:sourceStep :S15 ;
@@ -1161,7 +1161,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe29
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe29
 :pipe29 rdf:type owl:NamedIndividual ,
                  poc:FalsePipe ;
         poc:sourceStep :S15 ;
@@ -1169,7 +1169,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe3
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe3
 :pipe3 rdf:type owl:NamedIndividual ,
                 poc:PortPipe ;
        poc:sourcePort :outputPort0 ;
@@ -1179,7 +1179,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create live story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe30
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe30
 :pipe30 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :liveStories ;
@@ -1188,7 +1188,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe31
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe31
 :pipe31 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort23 ;
@@ -1197,7 +1197,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe32
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe32
 :pipe32 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S16 ;
@@ -1205,7 +1205,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe33
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe33
 :pipe33 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort10 ;
@@ -1215,7 +1215,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe34
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe34
 :pipe34 rdf:type owl:NamedIndividual ,
                  poc:HumanPipe ;
         poc:targetPort :inputPort25 ;
@@ -1223,7 +1223,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe35
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe35
 :pipe35 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :liveStories ;
@@ -1232,7 +1232,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe36
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe36
 :pipe36 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort11 ;
@@ -1242,7 +1242,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe37
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe37
 :pipe37 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort11 ;
@@ -1252,7 +1252,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe38
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe38
 :pipe38 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :livestory ;
@@ -1261,7 +1261,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe39
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe39
 :pipe39 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort12 ;
@@ -1271,7 +1271,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe4
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe4
 :pipe4 rdf:type owl:NamedIndividual ,
                 poc:HumanPipe ;
        poc:targetPort :inputPort5 ;
@@ -1279,7 +1279,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe40
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe40
 :pipe40 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :liveStories ;
@@ -1288,7 +1288,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe41
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe41
 :pipe41 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:targetPort :inputPort31 ;
@@ -1297,7 +1297,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe42
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe42
 :pipe42 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :inputPort13 ;
@@ -1307,7 +1307,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe43
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe43
 :pipe43 rdf:type owl:NamedIndividual ,
                  poc:HumanPipe ;
         poc:targetPort :inputPort33 ;
@@ -1315,7 +1315,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe44
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe44
 :pipe44 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort14 ;
@@ -1325,7 +1325,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe45
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe45
 :pipe45 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :liveStories ;
@@ -1334,7 +1334,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe46
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe46
 :pipe46 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort14 ;
@@ -1344,7 +1344,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe47
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe47
 :pipe47 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :livestory ;
@@ -1353,7 +1353,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe48
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe48
 :pipe48 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort15 ;
@@ -1363,7 +1363,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe49
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe49
 :pipe49 rdf:type owl:NamedIndividual ,
                  poc:HumanPipe ;
         poc:targetPort :inputPort45 ;
@@ -1371,7 +1371,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe5
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe5
 :pipe5 rdf:type owl:NamedIndividual ,
                 poc:DirectPipe ;
        poc:sourceUriValue :offlineStory ;
@@ -1380,7 +1380,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe50
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe50
 :pipe50 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue xsd:integer ;
@@ -1389,7 +1389,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe51
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe51
 :pipe51 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort18 ;
@@ -1399,7 +1399,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe52
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe52
 :pipe52 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S26 ;
@@ -1407,7 +1407,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe53
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe53
 :pipe53 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :reservations ;
@@ -1416,7 +1416,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe54
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe54
 :pipe54 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S28 ;
@@ -1424,7 +1424,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe55
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe55
 :pipe55 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue :reservations ;
@@ -1433,7 +1433,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe56
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe56
 :pipe56 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S29 ;
@@ -1441,7 +1441,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe57
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe57
 :pipe57 rdf:type owl:NamedIndividual ,
                  poc:HumanPipe ;
         poc:targetPort :inputPort47 ;
@@ -1449,7 +1449,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe58
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe58
 :pipe58 rdf:type owl:NamedIndividual ,
                  poc:DirectPipe ;
         poc:sourceUriValue xsd:integer ;
@@ -1458,7 +1458,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe59
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe59
 :pipe59 rdf:type owl:NamedIndividual ,
                  poc:PortPipe ;
         poc:sourcePort :outputPort19 ;
@@ -1468,7 +1468,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe6
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe6
 :pipe6 rdf:type owl:NamedIndividual ,
                 poc:DirectPipe ;
        poc:sourceUriValue :offlineStories ;
@@ -1477,7 +1477,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe60
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe60
 :pipe60 rdf:type owl:NamedIndividual ,
                  poc:UnconditionalControlPipe ;
         poc:sourceStep :S27 ;
@@ -1485,7 +1485,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
         rdfs:comment "Watch online story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe7
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe7
 :pipe7 rdf:type owl:NamedIndividual ,
                 poc:PortPipe ;
        poc:sourcePort :outputPort2 ;
@@ -1495,7 +1495,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Create offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe8
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe8
 :pipe8 rdf:type owl:NamedIndividual ,
                 poc:DirectPipe ;
        poc:sourceUriValue :offlineStories ;
@@ -1504,7 +1504,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe9
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#pipe9
 :pipe9 rdf:type owl:NamedIndividual ,
                 poc:UnconditionalControlPipe ;
        poc:sourceStep :S9 ;
@@ -1512,22 +1512,22 @@ poc:fieldType rdf:type owl:AnnotationProperty .
        rdfs:comment "Watch offline story pipe" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#reservations
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#reservations
 :reservations rdf:type owl:NamedIndividual ,
                        poc:List ;
               rdfs:label "Reservations"@en ;
               dcterms:description "The list that holds reservations(live stories that user accepted)" .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#startTime
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#startTime
 :startTime rdf:type owl:NamedIndividual ,
                     poc:DataField ;
            rdfs:label "startTime" ;
            dcterms:description "Start time of the live session" ;
-           poc:datatype xsd:dateTime .
+           poc:fieldType xsd:dateTime .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#summary
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#summary
 :summary rdf:type owl:NamedIndividual ,
                   poc:DataField ;
          rdfs:label "summary" ;
@@ -1535,7 +1535,7 @@ poc:fieldType rdf:type owl:AnnotationProperty .
          poc:fieldType xsd:string .
 
 
-###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#watchOffline
+###  http://soslab.cmpe.boun.edu.tr/ontologies/storytelling#watchOffline
 :watchOffline rdf:type owl:NamedIndividual ,
                        poc:Workflow ;
               poc:pipe :pipe10 ,
