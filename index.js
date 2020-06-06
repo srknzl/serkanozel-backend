@@ -34,6 +34,110 @@ app.use((req, res, next) => {
 });
 app.use(cookieParser());
 app.use(helmet());
+
+app.get("/pocUsers.ttl", (req, res, next) => {
+  const data = qs.stringify({
+    query: "SELECT ?s ?p ?o WHERE {?s ?p ?o}",
+  });
+
+  axios
+    .post("http://134.122.65.239:3030/ds/sparql", data, {
+      auth: {
+        username: "admin",
+        password: "pw123",
+      },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((ress) => {
+      const writer = new N3.Writer({
+        prefixes: {
+          "": "http://serkanozel.me/pocUsers.ttl",
+          acl: "http://www.w3.org/ns/auth/acl#",
+          dc: "http://purl.org/dc/elements/1.1/",
+          vcard: "http://www.w3.org/2006/vcard/ns#",
+          xsd: "http://www.w3.org/2001/XMLSchema#",
+        },
+      });
+      ress.data.results.bindings.forEach((x) => {
+        if (x.s.value == "http://serkanozel.me/pocUsers.ttl#poc") {
+          writer.addQuad(
+            df.namedNode("#poc"),
+            df.namedNode(x.p.value),
+            x.o.type == "literal"
+              ? df.literal(x.o.value, df.namedNode(x.o.datatype))
+              : df.namedNode(x.o.value)
+          );
+        } else {
+          writer.addQuad(
+            df.namedNode(x.s.value),
+            df.namedNode(x.p.value),
+            x.o.type == "literal"
+              ? df.literal(x.o.value, df.namedNode(x.o.datatype))
+              : df.namedNode(x.o.value)
+          );
+        }
+      });
+      writer.end((err, result) => {
+        res.header("Content-Type", "text/turtle").status(200).send(result);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post("/pocUsers.ttl", async (req, res, next) => {
+  const userIRI = req.body.userIRI;
+  const updateQuery = `INSERT { <http://serkanozel.me/pocUsers.ttl#poc> <http://www.w3.org/2006/vcard/ns#hasMember> <${userIRI}> .} WHERE {}`;
+  const data = qs.stringify({
+    update: updateQuery,
+  });
+
+  axios
+    .post("http://134.122.65.239:3030/ds/update", data, {
+      auth: {
+        username: "admin",
+        password: "pw123",
+      },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((ress) => {
+      res.status(200).json("OK");
+    })
+    .catch((err) => {
+      res.status(500).json("not ok");
+    });
+});
+
+app.delete("/pocUsers.ttl", async (req, res, next) => {
+  const userIRI = req.body.userIRI;
+  const updateQuery = `DELETE { <http://serkanozel.me/pocUsers.ttl#poc> <http://www.w3.org/2006/vcard/ns#hasMember> <${userIRI}> .} WHERE {?s ?p ?o}`;
+  const data = qs.stringify({
+    update: updateQuery,
+  });
+
+  axios
+    .post("http://134.122.65.239:3030/ds/update", data, {
+      auth: {
+        username: "admin",
+        password: "pw123",
+      },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((ress) => {
+      res.status(200).json("ok");
+    })
+    .catch((err) => {
+      res.status(500).json("not ok");
+    });
+});
+
 app.use("/blog", blogRouter);
 app.use("/portfolio", portfolioRouter);
 app.use("/auth", authRouter);
