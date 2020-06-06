@@ -6,10 +6,6 @@ const data = qs.stringify({
 });
 
 axios.post("http://134.122.65.239:3030/ds/update", data, {
-  auth: {
-    username: 'admin',
-    password: 'pw123'
-  },
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   }

@@ -42,10 +42,6 @@ app.get("/pocUsers.ttl", (req, res, next) => {
 
   axios
     .post("http://134.122.65.239:3030/ds/sparql", data, {
-      auth: {
-        username: "admin",
-        password: "pw123",
-      },
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -97,10 +93,6 @@ app.post("/pocUsers.ttl", async (req, res, next) => {
 
   axios
     .post("http://134.122.65.239:3030/ds/update", data, {
-      auth: {
-        username: "admin",
-        password: "pw123",
-      },
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -122,10 +114,6 @@ app.delete("/pocUsers.ttl", async (req, res, next) => {
 
   axios
     .post("http://134.122.65.239:3030/ds/update", data, {
-      auth: {
-        username: "admin",
-        password: "pw123",
-      },
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
