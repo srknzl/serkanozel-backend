@@ -84,47 +84,6 @@ app.get("/pocUsers.ttl", (req, res, next) => {
     });
 });
 
-app.post("/pocUsers.ttl", async (req, res, next) => {
-  const userIRI = req.body.userIRI;
-  const updateQuery = `INSERT { <http://serkanozel.me/pocUsers.ttl#poc> <http://www.w3.org/2006/vcard/ns#hasMember> <${userIRI}> .} WHERE {}`;
-  const data = qs.stringify({
-    update: updateQuery,
-  });
-
-  axios
-    .post("http://134.122.65.239:3030/ds/update", data, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
-    .then((ress) => {
-      res.status(200).json("OK");
-    })
-    .catch((err) => {
-      res.status(500).json("not ok");
-    });
-});
-
-app.delete("/pocUsers.ttl", async (req, res, next) => {
-  const userIRI = req.body.userIRI;
-  const updateQuery = `DELETE { <http://serkanozel.me/pocUsers.ttl#poc> <http://www.w3.org/2006/vcard/ns#hasMember> <${userIRI}> .} WHERE {?s ?p ?o}`;
-  const data = qs.stringify({
-    update: updateQuery,
-  });
-
-  axios
-    .post("http://134.122.65.239:3030/ds/update", data, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
-    .then((ress) => {
-      res.status(200).json("ok");
-    })
-    .catch((err) => {
-      res.status(500).json("not ok");
-    });
-});
 
 app.use("/blog", blogRouter);
 app.use("/portfolio", portfolioRouter);
