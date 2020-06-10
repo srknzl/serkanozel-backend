@@ -24,7 +24,7 @@
     poc:inputPort :inputPort0 ,
                   :inputPort1 ;
     poc:outputPort :outputPort0 ;
-    rdfs:comment "Create live story step" .
+    rdfs:comment "Please enter live story details" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S1
@@ -100,7 +100,7 @@
      poc:inputPort :inputPort25 ,
                    :inputPort26 ;
      poc:outputPort :outputPort11 ;
-     rdfs:comment "Watch online step" .
+     rdfs:comment "Please select a live story entry to reserve." .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S18
@@ -126,7 +126,7 @@
     poc:inputPort :inputPort5 ,
                   :inputPort6 ;
     poc:outputPort :outputPort2 ;
-    rdfs:comment "Create offline story step" .
+    rdfs:comment "Please enter the details to create a offline video" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S20
@@ -151,7 +151,7 @@
      poc:inputPort :inputPort33 ,
                    :inputPort34 ;
      poc:outputPort :outputPort14 ;
-     rdfs:comment "Watch online step" .
+     rdfs:comment "Please select a live story entry to reserve." .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S23
@@ -228,7 +228,7 @@
      poc:inputPort :inputPort45 ,
                    :inputPort46 ;
      poc:outputPort :outputPort18 ;
-     rdfs:comment "Watch online step" .
+     rdfs:comment "Please enter your longitude" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S31
@@ -237,7 +237,16 @@
      poc:inputPort :inputPort47 ,
                    :inputPort48 ;
      poc:outputPort :outputPort19 ;
-     rdfs:comment "Watch online step" .
+     rdfs:comment "Please enter your latitude" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S32
+:S32 rdf:type owl:NamedIndividual ,
+              poc:CreateStep ;
+     poc:inputPort :inputPort59 ,
+                   :inputPort60 ;
+     poc:outputPort :outputPort20 ;
+     rdfs:comment "Please your internet connection speed in megabits per second Mbps" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#S4
@@ -419,7 +428,9 @@
                         :pipe66 ,
                         :pipe67 ,
                         :pipe68 ,
-                        :pipe69 ;
+                        :pipe69 ,
+                        :pipe70 ,
+                        :pipe71 ;
                poc:step :S11 ,
                         :S12 ,
                         :S13 ,
@@ -440,7 +451,8 @@
                         :S28 ,
                         :S29 ,
                         :S30 ,
-                        :S31 ;
+                        :S31 ,
+                        :S32 ;
                rdfs:label "Find a live story"@en ;
                dcterms:description "Search for live session requests and if there is a match choose it, the system creates an instance of reservation and adds it to the reservations list. Also, it deletes the live story from the live stories list."@en .
 
@@ -774,10 +786,22 @@
              rdfs:label "name" .
 
 
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort59
+:inputPort59 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "datatype" .
+
+
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort6
 :inputPort6 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
             rdfs:label "datatype" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort60
+:inputPort60 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "object" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort7
@@ -936,6 +960,12 @@
 :outputPort2 rdf:type owl:NamedIndividual ,
                       poc:OutputPort ;
              rdfs:label "result" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort20
+:outputPort20 rdf:type owl:NamedIndividual ,
+                       poc:OutputPort ;
+              rdfs:label "result" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort3
@@ -1141,8 +1171,8 @@
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe25
 :pipe25 rdf:type owl:NamedIndividual ,
                  poc:HumanPipe ;
-        poc:targetPort :inputPort21 ;
-        poc:targetStep :S14 ;
+        poc:targetPort :inputPort60 ;
+        poc:targetStep :S32 ;
         rdfs:comment "Watch online story pipe" .
 
 
@@ -1585,6 +1615,25 @@
        poc:targetPort :inputPort7 ;
        poc:targetStep :S3 ;
        rdfs:comment "Create offline story pipe" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe70
+:pipe70 rdf:type owl:NamedIndividual ,
+                 poc:PortPipe ;
+        poc:sourcePort :outputPort20 ;
+        poc:sourceStep :S32 ;
+        poc:targetPort :inputPort21 ;
+        poc:targetStep :S14 ;
+        rdfs:comment "Watch online story pipe" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe71
+:pipe71 rdf:type owl:NamedIndividual ,
+                 poc:DirectPipe ;
+        poc:sourcePort :inputPort59 ;
+        poc:sourceStep :S32 ;
+        poc:sourceUriValue xsd:positiveInteger ;
+        rdfs:comment "Watch online story pipe" .
 
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#pipe8
