@@ -14,6 +14,7 @@
                                                               owl:imports poc: ;
                                                               rdfs:comment "An ontology for creating an application in which elder children will tell stories to younger children. Due to pandemic they cannot do what they do in the past in their schools."^^xsd:string .
 
+
 #################################################################
 #    Individuals
 #################################################################
@@ -107,7 +108,9 @@
 :S18 rdf:type owl:NamedIndividual ,
               poc:RemoveStep ;
      poc:inputPort :inputPort27 ,
-                   :inputPort28 ;
+                   :inputPort28 ,
+                   :inputPort61 ;
+     poc:outputPort :outputPort21 ;
      rdfs:comment "Watch online step" .
 
 
@@ -158,7 +161,9 @@
 :S23 rdf:type owl:NamedIndividual ,
               poc:RemoveStep ;
      poc:inputPort :inputPort35 ,
-                   :inputPort36 ;
+                   :inputPort36 ,
+                   :inputPort62 ;
+     poc:outputPort :outputPort22 ;
      rdfs:comment "Watch online step" .
 
 
@@ -198,7 +203,8 @@
 :S28 rdf:type owl:NamedIndividual ,
               poc:InsertStep ;
      poc:inputPort :inputPort41 ,
-                   :inputPort42 ;
+                   :inputPort42 ,
+                   :inputPort63 ;
      poc:outputPort :outputPort16 ;
      rdfs:comment "Watch online step" .
 
@@ -207,7 +213,8 @@
 :S29 rdf:type owl:NamedIndividual ,
               poc:InsertStep ;
      poc:inputPort :inputPort43 ,
-                   :inputPort44 ;
+                   :inputPort44 ,
+                   :inputPort64 ;
      poc:outputPort :outputPort17 ;
      rdfs:comment "Watch online step" .
 
@@ -286,7 +293,8 @@
              poc:ModifyStep ;
     poc:inputPort :inputPort16 ,
                   :inputPort17 ,
-                  :inputPort18 ;
+                  :inputPort18 ,
+                  :inputPort65 ;
     poc:outputPort :outputPort7 ;
     rdfs:comment "Watch offline step" .
 
@@ -804,6 +812,36 @@
              rdfs:label "object" .
 
 
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort61
+:inputPort61 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "index" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort62
+:inputPort62 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "index" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort63
+:inputPort63 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "index" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort64
+:inputPort64 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "index" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort65
+:inputPort65 rdf:type owl:NamedIndividual ,
+                      poc:InputPort ;
+             rdfs:label "property" .
+
+
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#inputPort7
 :inputPort7 rdf:type owl:NamedIndividual ,
                      poc:InputPort ;
@@ -964,6 +1002,18 @@
 
 ###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort20
 :outputPort20 rdf:type owl:NamedIndividual ,
+                       poc:OutputPort ;
+              rdfs:label "result" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort21
+:outputPort21 rdf:type owl:NamedIndividual ,
+                       poc:OutputPort ;
+              rdfs:label "result" .
+
+
+###  http://web.cmpe.boun.edu.tr/soslab/ontologies/storytelling#outputPort22
+:outputPort22 rdf:type owl:NamedIndividual ,
                        poc:OutputPort ;
               rdfs:label "result" .
 
